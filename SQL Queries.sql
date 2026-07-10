@@ -50,7 +50,7 @@ JOIN PROJECT P ON W.Pno = P.Pnumber
 WHERE P.Pname = 'ProductY';
 
 /* ======================================================================================================
- Question 6: Retrieve the name and address of all employees who work for the 'Headquarters' department.
+ Retrieve the name and address of all employees who work for the 'Headquarters' department.
 ====================================================================================================== */
 SELECT E.Fname, E.Lname, E.Address
 FROM EMPLOYEE E
@@ -58,7 +58,7 @@ JOIN DEPARTMENT D ON E.Dno = D.Dnumber
 WHERE D.Dname = 'Headquarters';
 
 /* ============================================================================================
- Question 7: Write a query to update the birth date of the employee whose ssn is '999001111'. 
+Write a query to update the birth date of the employee whose ssn is '999001111'. 
  The new birth date is '1965-01-08'
 ============================================================================================ */
 UPDATE EMPLOYEE
@@ -66,7 +66,7 @@ SET Bdate = '1965-01-08'
 WHERE Ssn = '999001111';
 
 /* =============================================================================================
- Question 8: For every project located in ‘Stafford’, list the project number, the controlling 
+ For every project located in ‘Stafford’, list the project number, the controlling 
  department number, and the department manager’s last name, address, and birth date.
 ============================================================================================= */
 SELECT P.Pnumber, P.Dnum,
@@ -79,7 +79,7 @@ JOIN EMPLOYEE E ON D.Mgr_ssn = E.Ssn
 WHERE P.Plocation = 'Stafford';
 
 /* ==========================================================================
- Question 9: For each employee, retrieve the employee’s first and last name 
+ For each employee, retrieve the employee’s first and last name 
  and the first and last name of his or her immediate supervisor
 ========================================================================== */
 SELECT E.Fname AS Emp_Fname, E.Lname AS Emp_Lname,
@@ -88,7 +88,7 @@ FROM EMPLOYEE E
 LEFT JOIN EMPLOYEE S ON E.Super_ssn = S.Ssn;
 
 /* ================================================================================================
- Question 10: Make a list of all project numbers for projects that involve an employee whose last 
+ Make a list of all project numbers for projects that involve an employee whose last 
  name is ‘Smith’, either as a worker or as a manager of the department that controls the project.
 ================================================================================================ */
 SELECT DISTINCT P.Pnumber
@@ -108,7 +108,7 @@ OR P.Pnumber IN (
 );
 
 /* ================================================================================================
- Question 11: Retrieve a list of employees and the projects they are working on, ordered 
+Retrieve a list of employees and the projects they are working on, ordered 
  by department and, within each department, ordered alphabetically by last name, then first name.
 ================================================================================================ */
 SELECT E.Dno, E.Lname, E.Fname, P.Pname
@@ -118,7 +118,7 @@ JOIN PROJECT P ON W.Pno = P.Pnumber
 ORDER BY E.Dno ASC, E.Lname ASC, E.Fname ASC;
 
 /* ==================================================================
- Question 12: Write a query to insert the following new departments
+Write a query to insert the following new departments
 ================================================================== */
 INSERT INTO DEPARTMENT (Dname, Dnumber, Mgr_ssn, Mgr_start_date) VALUES
 ('Marketing',        11, '666666601', '2000-07-22'),
@@ -128,7 +128,10 @@ INSERT INTO DEPARTMENT (Dname, Dnumber, Mgr_ssn, Mgr_start_date) VALUES
 ('Customer Service', 15, '666666600', '2020-05-22');
 
 /* ================================================================
- Question 13:Write a query to delete the ‘Operations’ department.
+Write a query to delete the ‘Operations’ department.
 ================================================================ */
 DELETE FROM DEPARTMENT
 WHERE Dname = 'Operations';
+
+
+*.sql linguist-detectable=true
