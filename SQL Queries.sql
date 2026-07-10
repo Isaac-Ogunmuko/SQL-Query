@@ -133,5 +133,4 @@ Write a query to delete the ‘Operations’ department.
 DELETE FROM DEPARTMENT
 WHERE Dname = 'Operations';
 
-
 *.sql linguist-detectable=true
